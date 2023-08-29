@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UbatubaPraias</string>
+    <string name="pa_01">Praia Dura</string>
+    <string name="pa_02">Praia Grande</string>
+    <string name="pa_03">Praia das Toninhas</string>
+    <string name="pa_04">Praia do Felix</string>
+    <string name="pa_05">Praia do Sul</string>
+    <string name="pa_06">Prainha</string>
+    <string name="pa_07">Praia Brava</string>
+    <string name="pa_08">Praia do Doca</string>
+</resources>
