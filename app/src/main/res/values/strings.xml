@@ -8,4 +8,23 @@
     <string name="pa_06">Prainha</string>
     <string name="pa_07">Praia Brava</string>
     <string name="pa_08">Praia do Doca</string>
+
+
+    <string name="ca_01">Cachoeira da Bacia</string>
+    <string name="ca_02">Cachoeira Grande</string>
+    <string name="ca_03">Cachoeira da Pedra</string>
+    <string name="ca_04">Cachoeira do Sul</string>
+    <string name="ca_05">Cachoeira do Promirim</string>
+    <string name="ca_06">Cachoeira da Sereia</string>
+    <string name="ca_07">Cachoeira da Caixa</string>
+    <string name="ca_08">Cachoeira do Norte</string>
+
+    <string name="at_01">Roda Gigante</string>
+    <string name="at_02">Ruinas lagoinha</string>
+    <string name="at_03">Aquario</string>
+    <string name="at_04">Restaurantes</string>
+    <string name="at_05">Lojas</string>
+    <string name="at_06">Pico do Corcovado</string>
+    <string name="at_07">Teatro Municipal</string>
+    <string name="at_08">Praças Publicas</string>
 </resources>

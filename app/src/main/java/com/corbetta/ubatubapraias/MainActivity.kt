@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             UbatubaPraiaTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize() .padding(4.dp),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.primaryContainer
                 ) {
                    Home()
                 }
