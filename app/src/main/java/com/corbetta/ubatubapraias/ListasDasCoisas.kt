@@ -67,8 +67,9 @@ fun ListasDasCoisas(
                 modifier = Modifier
                     .fillMaxSize()
                     .clickable {
-                        expanded = !expanded
+                        
                     }
+
             )
         }
         Text(

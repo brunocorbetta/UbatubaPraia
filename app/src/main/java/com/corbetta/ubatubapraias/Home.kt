@@ -27,6 +27,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,8 +50,7 @@ import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 @Composable
 fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewModel() ) {
 
-    val cachoeiraSelected by homeViewModel.cachoeiraSelected
-    val atracoesSelected by homeViewModel.atracoesSelected
+val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
 
 
     UbatubaPraiaTheme {
@@ -113,9 +113,10 @@ fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewMode
 
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable { homeViewModel.updateCachoeiraSelected(false)
-                                    homeViewModel.updateAtracoesSelected(false)
-                            }
+                        .clickable {
+                            homeViewModel.updatePraias()
+
+                        }
                 )
                 Text(text = "Praias")
             }
@@ -131,8 +132,8 @@ fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewMode
 
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable {homeViewModel.updateCachoeiraSelected(true)
-                            homeViewModel.updateAtracoesSelected(false)
+                        .clickable {
+                            homeViewModel.updateCachoeiraSelected()
                         }
                 )
                 Text(text = "Cachoeiras")
@@ -148,20 +149,25 @@ fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewMode
                         .size(82.dp)
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable { homeViewModel.updateCachoeiraSelected(false)
-                            homeViewModel.updateAtracoesSelected(true)
+                        .clickable {
+                            homeViewModel.updateAtracoesSelected()
                         }
                 )
                 Text(text = "Atrações")
             }
         }
 
-
-
             Spacer(modifier = Modifier
                 .height(2.dp)
                 .fillMaxWidth(1f)
                 .background(color = MaterialTheme.colorScheme.primaryContainer))
+
+
+            val itensDaLista = when {
+                estadoDasCoisas.praiasSelecionadas.equals(true) -> todaspraias
+                estadoDasCoisas.cachoeirasSelecionada.equals(true) -> todascachoeiras
+                else -> todasAtracoes
+            }
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
@@ -170,13 +176,7 @@ fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewMode
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = modifier
                 .padding(vertical = 4.dp) ) {
-
-                val itemsToShow = when {
-                    cachoeiraSelected -> todascachoeiras
-                    atracoesSelected -> todasAtracoes
-                    else -> todaspraias
-                }
-                items(itemsToShow) { item ->
+                items(itensDaLista) { item ->
                     ListasDasCoisas(item.drawable, item.text, modifier.height(20.dp))
                 }
             }
