@@ -1,40 +1,18 @@
 package com.corbetta.ubatubapraias
 
 
-import android.graphics.Color
-import android.graphics.Paint
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
-import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-
-
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
-
-
-
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -61,6 +39,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.corbetta.ubatubapraias.data.todasAtracoes
+import com.corbetta.ubatubapraias.data.todascachoeiras
+import com.corbetta.ubatubapraias.data.todaspraias
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 
@@ -134,7 +115,7 @@ fun Home(modifier: Modifier = Modifier) {
                         .padding(8.dp)
                         .clip(CircleShape)
                         .clickable { cachoeiraSelected = false
-                                    atracoesSelected = false}
+                                    atracoesSelected = false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }
                 )
                 Text(text = "Praias")
             }
@@ -204,44 +185,6 @@ fun Home(modifier: Modifier = Modifier) {
 }
 
 
-
-private data class DrawableStringPair(
-    @DrawableRes val drawable: Int,
-    @StringRes val text: Int
-)
-
-private val todaspraias = listOf(
-    R.drawable.pa_01 to R.string.pa_01,
-    R.drawable.pa_02 to R.string.pa_02,
-    R.drawable.pa_03 to R.string.pa_03,
-    R.drawable.pa_04 to R.string.pa_04,
-    R.drawable.pa_05 to R.string.pa_05,
-    R.drawable.pa_06 to R.string.pa_06,
-    R.drawable.pa_07 to R.string.pa_07,
-    R.drawable.pa_08 to R.string.pa_08,
-).map { DrawableStringPair(it.first, it.second) }
-
-private val todascachoeiras = listOf(
-    R.drawable.ca_01 to R.string.ca_01,
-    R.drawable.ca_02 to R.string.ca_02,
-    R.drawable.ca_03 to R.string.ca_03,
-    R.drawable.ca_04 to R.string.ca_04,
-    R.drawable.ca_05 to R.string.ca_05,
-    R.drawable.ca_06 to R.string.ca_06,
-    R.drawable.ca_07 to R.string.ca_07,
-    R.drawable.ca_08 to R.string.ca_08,
-).map { DrawableStringPair(it.first, it.second) }
-
-private val todasAtracoes = listOf(
-    R.drawable.at_01 to R.string.at_01,
-    R.drawable.at_02 to R.string.at_02,
-    R.drawable.at_03 to R.string.at_03,
-    R.drawable.at_04 to R.string.at_04,
-    R.drawable.at_05 to R.string.at_05,
-    R.drawable.at_06 to R.string.at_06,
-    R.drawable.at_07 to R.string.at_07,
-    R.drawable.at_08 to R.string.at_08,
-).map { DrawableStringPair(it.first, it.second) }
 
 @Preview()
 @Composable

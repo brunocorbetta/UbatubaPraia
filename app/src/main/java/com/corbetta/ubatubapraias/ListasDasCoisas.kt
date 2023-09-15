@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -81,17 +80,6 @@ fun ListasDasCoisas(
 
         )
 
-        if (expanded) {
-
-            Text(
-                text = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
-                fontSize = 22.sp,
-                color = MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier
-                    .padding(start = 4.dp, end = 4.dp)
-            )
-
-        }
     }
 }
 
