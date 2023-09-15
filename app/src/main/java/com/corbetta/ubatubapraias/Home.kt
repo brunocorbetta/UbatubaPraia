@@ -28,9 +28,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,20 +36,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.corbetta.ubatubapraias.data.todasAtracoes
 import com.corbetta.ubatubapraias.data.todascachoeiras
 import com.corbetta.ubatubapraias.data.todaspraias
+import com.corbetta.ubatubapraias.ui.theme.HomeViewModel
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(modifier: Modifier = Modifier) {
+fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewModel() ) {
 
+    val cachoeiraSelected by homeViewModel.cachoeiraSelected
+    val atracoesSelected by homeViewModel.atracoesSelected
 
-    var cachoeiraSelected by remember { mutableStateOf(false) }
-    var atracoesSelected by remember { mutableStateOf(false) }
 
     UbatubaPraiaTheme {
 
@@ -114,8 +113,9 @@ fun Home(modifier: Modifier = Modifier) {
 
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable { cachoeiraSelected = false
-                                    atracoesSelected = false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }
+                        .clickable { homeViewModel.updateCachoeiraSelected(false)
+                                    homeViewModel.updateAtracoesSelected(false)
+                            }
                 )
                 Text(text = "Praias")
             }
@@ -131,8 +131,9 @@ fun Home(modifier: Modifier = Modifier) {
 
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable { cachoeiraSelected = true
-                                     atracoesSelected = false}
+                        .clickable {homeViewModel.updateCachoeiraSelected(true)
+                            homeViewModel.updateAtracoesSelected(false)
+                        }
                 )
                 Text(text = "Cachoeiras")
             }
@@ -147,8 +148,9 @@ fun Home(modifier: Modifier = Modifier) {
                         .size(82.dp)
                         .padding(8.dp)
                         .clip(CircleShape)
-                        .clickable { cachoeiraSelected = false
-                        atracoesSelected= true}
+                        .clickable { homeViewModel.updateCachoeiraSelected(false)
+                            homeViewModel.updateAtracoesSelected(true)
+                        }
                 )
                 Text(text = "Atrações")
             }
