@@ -1,4 +1,4 @@
-package com.corbetta.ubatubapraias
+package com.corbetta.ubatubapraias.ui.states
 
 data class CoisasUiState (
     val cachoeirasSelecionada: Boolean = false,

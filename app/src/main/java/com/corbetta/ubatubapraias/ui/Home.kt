@@ -1,4 +1,4 @@
-package com.corbetta.ubatubapraias
+package com.corbetta.ubatubapraias.ui
 
 
 import androidx.compose.foundation.Image
@@ -38,10 +38,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.corbetta.ubatubapraias.R
 import com.corbetta.ubatubapraias.data.todasAtracoes
 import com.corbetta.ubatubapraias.data.todascachoeiras
 import com.corbetta.ubatubapraias.data.todaspraias
-import com.corbetta.ubatubapraias.ui.theme.HomeViewModel
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 

@@ -1,12 +1,7 @@
-package com.corbetta.ubatubapraias.ui.theme
+package com.corbetta.ubatubapraias.ui
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.corbetta.ubatubapraias.CoisasUiState
-import com.corbetta.ubatubapraias.data.DrawableStringPair
-import com.corbetta.ubatubapraias.data.todasAtracoes
-import com.corbetta.ubatubapraias.data.todascachoeiras
-import com.corbetta.ubatubapraias.data.todaspraias
+import com.corbetta.ubatubapraias.ui.states.CoisasUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

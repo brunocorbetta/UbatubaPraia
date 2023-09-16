@@ -1,4 +1,4 @@
-package com.corbetta.ubatubapraias
+package com.corbetta.ubatubapraias.ui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
