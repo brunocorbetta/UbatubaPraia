@@ -48,7 +48,7 @@ import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewModel() ) {
+fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewModel(), onclickTroca: () -> Unit = {} ) {
 
 val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
 
@@ -177,7 +177,7 @@ val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
                 modifier = modifier
                 .padding(vertical = 4.dp) ) {
                 items(itensDaLista) { item ->
-                    ListasDasCoisas(item.drawable, item.text, modifier.height(20.dp))
+                    ListasDasCoisas(item.drawable, item.text, onclickTroca, modifier.height(20.dp))
                 }
             }
 

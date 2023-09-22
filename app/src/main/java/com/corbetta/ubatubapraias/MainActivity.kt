@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.corbetta.ubatubapraias.ui.Home
+import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,11 +17,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UbatubaPraiaTheme {
+                val navController = rememberNavController()
+
                 Surface(
-                    modifier = Modifier.fillMaxSize() .padding(4.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(4.dp),
                     color = MaterialTheme.colorScheme.primaryContainer
                 ) {
-                   Home()
+                   AppNavHost(navController = navController)
                 }
             }
         }

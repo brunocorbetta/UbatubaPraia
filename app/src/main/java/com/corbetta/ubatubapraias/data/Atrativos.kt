@@ -3,6 +3,8 @@ package com.corbetta.ubatubapraias.data
 
 import com.corbetta.ubatubapraias.R
 
+
+
  val todaspraias = listOf(
     R.drawable.pa_01 to R.string.pa_01,
     R.drawable.pa_02 to R.string.pa_02,
