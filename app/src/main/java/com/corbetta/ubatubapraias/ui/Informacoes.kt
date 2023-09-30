@@ -25,6 +25,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -34,13 +36,26 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.corbetta.ubatubapraias.R
+import com.corbetta.ubatubapraias.data.Atrativo
+import com.corbetta.ubatubapraias.data.todaspraias
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @Composable
 fun Informacoes(
+    homeViewModel : HomeViewModel = viewModel(),
     onclickVolta: () -> Unit = {},
     modifier: Modifier = Modifier) {
+
+    val id by homeViewModel.itemIdSelecionado.collectAsState()
+
+    val item = todaspraias.find { it.id == id }
+
+
+
+
+
 
     UbatubaPraiaTheme {
 
@@ -65,13 +80,15 @@ fun Informacoes(
 
             ) {
 
-                Image(
-                    painter = painterResource(id = R.drawable.pa_01),
-                    contentDescription = "Informações",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
+                item?.let { painterResource(id = it.imagem) }?.let {
+                    Image(
+                        painter = it,
+                        contentDescription = "Informações",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
 
-                )
+                    )
+                }
                 IconButton(onClick = {
                     onclickVolta()
                 }) {
@@ -93,7 +110,8 @@ fun Informacoes(
             Column(
             ) {
 
-                    Text(text = "Praia Dura",
+                    Text(
+                        text = "Praias",
                         fontSize = 38.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,

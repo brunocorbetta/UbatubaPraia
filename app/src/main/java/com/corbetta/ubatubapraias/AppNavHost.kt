@@ -2,11 +2,13 @@ package com.corbetta.ubatubapraias
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.ui.Home
+import com.corbetta.ubatubapraias.ui.HomeViewModel
 import com.corbetta.ubatubapraias.ui.Informacoes
 import com.corbetta.ubatubapraias.ui.ListasDasCoisas
 
@@ -17,6 +19,7 @@ fun AppNavHost (
     startDestination: String = "home",
     modifier: Modifier = Modifier
 ) {
+    val homeViewModel: HomeViewModel = viewModel()
     NavHost(
         navController = navController ,
         startDestination =  startDestination,
@@ -37,12 +40,6 @@ fun AppNavHost (
                     navController.navigate("home")
                 }
             )
-        }
-        composable("listasdascoisas") {
-           ListasDasCoisas(drawable = 0, text = 0,
-               onclickTroca = {
-                   navController.navigate("informacoes")
-               })
         }
     }}
 

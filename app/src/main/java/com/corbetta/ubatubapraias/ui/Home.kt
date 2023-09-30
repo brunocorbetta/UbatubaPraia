@@ -45,12 +45,17 @@ import com.corbetta.ubatubapraias.data.todaspraias
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(modifier: Modifier = Modifier, homeViewModel : HomeViewModel = viewModel(), onclickTroca: () -> Unit = {} ) {
+fun Home(modifier: Modifier = Modifier,
+         homeViewModel : HomeViewModel = viewModel(),
+         onclickTroca: (Int) -> Unit = {},
+         ) {
 
-val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
+    val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
+
+
+
 
 
     UbatubaPraiaTheme {
@@ -169,6 +174,7 @@ val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
                 else -> todasAtracoes
             }
 
+
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 contentPadding = PaddingValues(horizontal = 16.dp),
@@ -177,14 +183,21 @@ val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
                 modifier = modifier
                 .padding(vertical = 4.dp) ) {
                 items(itensDaLista) { item ->
-                    ListasDasCoisas(item.drawable, item.text, onclickTroca, modifier.height(20.dp))
+                    ListasDasCoisas(item.imagem, item.name, getid = item.id, onclickTroca = {
+                        id ->
+                        homeViewModel.onItemClick(item.id)
+                        onclickTroca(id)
+                    })
                 }
+
             }
 
 
         }
     }
 }
+
+
 
 
 
