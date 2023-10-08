@@ -31,11 +31,18 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun ListasDasCoisas(
     @DrawableRes drawable: Int,
     @StringRes text: Int,
-    onclickTroca: (Int) -> Unit = {},
-    getid: Int,
+    onclickTroca: () -> Unit = {},
+    getId: Int,
     modifier: Modifier = Modifier
 ) {
 
+    var viewmodel: HomeViewModel = viewModel ()
+
+
+
+    fun getid (id: Int) {
+        viewmodel.onItemClick(id)
+    }
 
     Column(
         verticalArrangement = Arrangement.Bottom,
@@ -68,7 +75,8 @@ fun ListasDasCoisas(
                     .fillMaxSize()
                     .clickable(
                         onClick = {
-                            onclickTroca(getid)
+                            onclickTroca()
+                            getid(getId)
                         }
                     )
 

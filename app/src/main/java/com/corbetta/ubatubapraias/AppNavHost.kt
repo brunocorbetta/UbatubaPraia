@@ -19,7 +19,7 @@ fun AppNavHost (
     startDestination: String = "home",
     modifier: Modifier = Modifier
 ) {
-    val homeViewModel: HomeViewModel = viewModel()
+
     NavHost(
         navController = navController ,
         startDestination =  startDestination,

@@ -49,7 +49,7 @@ import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 @Composable
 fun Home(modifier: Modifier = Modifier,
          homeViewModel : HomeViewModel = viewModel(),
-         onclickTroca: (Int) -> Unit = {},
+         onclickTroca: () -> Unit = {},
          ) {
 
     val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
@@ -183,11 +183,7 @@ fun Home(modifier: Modifier = Modifier,
                 modifier = modifier
                 .padding(vertical = 4.dp) ) {
                 items(itensDaLista) { item ->
-                    ListasDasCoisas(item.imagem, item.name, getid = item.id, onclickTroca = {
-                        id ->
-                        homeViewModel.onItemClick(item.id)
-                        onclickTroca(id)
-                    })
+                    ListasDasCoisas(item.imagem, item.name, onclickTroca, getId = item.id)
                 }
 
             }

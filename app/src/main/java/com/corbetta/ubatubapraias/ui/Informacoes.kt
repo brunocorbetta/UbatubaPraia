@@ -48,12 +48,14 @@ fun Informacoes(
     onclickVolta: () -> Unit = {},
     modifier: Modifier = Modifier) {
 
-    val id by homeViewModel.itemIdSelecionado.collectAsState()
+    val id = homeViewModel.itemselecionado
 
-    val item = todaspraias.find { it.id == id }
+    fun findImageById(id: Int): Int {
+        val atrativo = todaspraias.find { it.id == id }
+        return atrativo?.imagem ?: R.drawable.pa_01
+    }
 
-
-
+    val imageatrativo = findImageById(id)
 
 
 
@@ -80,9 +82,9 @@ fun Informacoes(
 
             ) {
 
-                item?.let { painterResource(id = it.imagem) }?.let {
+
                     Image(
-                        painter = it,
+                        painter = painterResource(imageatrativo),
                         contentDescription = "Informações",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -155,7 +157,7 @@ fun Informacoes(
             }
         }
     }
-}
+
 
 @Preview()
 @Composable

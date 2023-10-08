@@ -2,6 +2,7 @@ package com.corbetta.ubatubapraias.ui
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.input.key.Key.Companion.T
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
@@ -17,12 +18,13 @@ class HomeViewModel : ViewModel() {
     private val _coisaSelecionada = MutableStateFlow(CoisasUiState())
     val coisasSelecionada: StateFlow<CoisasUiState> = _coisaSelecionada.asStateFlow()
 
-    private val _itemIdSelecionado = MutableStateFlow(-1)
-    val itemIdSelecionado: StateFlow<Int> = _itemIdSelecionado.asStateFlow()
+   private  var _itemselecionado: MutableState<Int> = mutableStateOf(6)
+    var itemselecionado: Int = _itemselecionado.value
 
+    
 
     fun onItemClick(itemId: Int) {
-        _itemIdSelecionado.value = itemId
+         _itemselecionado.value = itemId
     }
 
     fun updatePraias() {
