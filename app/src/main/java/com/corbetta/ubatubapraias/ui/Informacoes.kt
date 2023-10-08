@@ -25,6 +25,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -48,14 +50,9 @@ fun Informacoes(
     onclickVolta: () -> Unit = {},
     modifier: Modifier = Modifier) {
 
-    val id = homeViewModel.itemselecionado
 
-    fun findImageById(id: Int): Int {
-        val atrativo = todaspraias.find { it.id == id }
-        return atrativo?.imagem ?: R.drawable.pa_01
-    }
 
-    val imageatrativo = findImageById(id)
+    val id by homeViewModel.itemselecionado.collectAsState()
 
 
 
@@ -84,7 +81,7 @@ fun Informacoes(
 
 
                     Image(
-                        painter = painterResource(imageatrativo),
+                        painter = painterResource(findImageById(id.id)),
                         contentDescription = "Informações",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -157,6 +154,10 @@ fun Informacoes(
             }
         }
     }
+fun findImageById(id: Int): Int {
+    val atrativo = todaspraias.find { it.id == id }
+    return atrativo?.imagem ?: R.drawable.pa_01
+}
 
 
 @Preview()

@@ -7,6 +7,7 @@ import androidx.compose.ui.input.key.Key.Companion.T
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import com.corbetta.ubatubapraias.ui.states.CoisasUiState
+import com.corbetta.ubatubapraias.ui.states.IdUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,14 +19,20 @@ class HomeViewModel : ViewModel() {
     private val _coisaSelecionada = MutableStateFlow(CoisasUiState())
     val coisasSelecionada: StateFlow<CoisasUiState> = _coisaSelecionada.asStateFlow()
 
-   private  var _itemselecionado: MutableState<Int> = mutableStateOf(6)
-    var itemselecionado: Int = _itemselecionado.value
+    private val _itemselecionado = MutableStateFlow(IdUiState())
+    val itemselecionado: StateFlow<IdUiState> = _itemselecionado.asStateFlow()
 
-    
+
 
     fun onItemClick(itemId: Int) {
-         _itemselecionado.value = itemId
+         _itemselecionado.value.id = itemId
     }
+//        _itemselecionado.update {
+//            idUiState -> idUiState.copy(
+//                id = itemId
+//            )
+//        }
+//    }
 
     fun updatePraias() {
         _coisaSelecionada.update {
