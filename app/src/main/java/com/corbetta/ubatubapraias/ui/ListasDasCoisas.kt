@@ -36,13 +36,9 @@ fun ListasDasCoisas(
     modifier: Modifier = Modifier
 ) {
 
-    var viewmodel: HomeViewModel = viewModel ()
+    var viewmodel: InformacoesViewModel = viewModel ()
 
 
-
-    fun getid (id: Int) {
-        viewmodel.onItemClick(id)
-    }
 
     Column(
         verticalArrangement = Arrangement.Bottom,
@@ -75,8 +71,9 @@ fun ListasDasCoisas(
                     .fillMaxSize()
                     .clickable(
                         onClick = {
+                            viewmodel.onItemClick(getId)
                             onclickTroca()
-                            getid(getId)
+
                         }
                     )
 
