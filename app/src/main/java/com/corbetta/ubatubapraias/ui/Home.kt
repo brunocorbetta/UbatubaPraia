@@ -183,7 +183,7 @@ fun Home(modifier: Modifier = Modifier,
                 modifier = modifier
                 .padding(vertical = 4.dp) ) {
                 items(itensDaLista) { item ->
-                    ListasDasCoisas(item.imagem, item.name, onclickTroca, getId = item.id)
+                    ListasDasCoisas(item.imagem, item.name, onclickTroca, getId = item.id, modifier = Modifier.padding(6.dp))
                 }
 
             }

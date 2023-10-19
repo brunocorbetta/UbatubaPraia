@@ -2,15 +2,13 @@ package com.corbetta.ubatubapraias
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.ui.Home
-import com.corbetta.ubatubapraias.ui.HomeViewModel
 import com.corbetta.ubatubapraias.ui.Informacoes
-import com.corbetta.ubatubapraias.ui.ListasDasCoisas
+
 
 
 @Composable
@@ -28,18 +26,18 @@ fun AppNavHost (
         composable("home") {
             Home(
                 onclickTroca = {
-                    navController.navigate("informacoes")
+                navController.navigateSingleTopTo("informacoes")
                 }
             )
         }
-
 
         composable("informacoes") {
-            Informacoes(
-                onclickVolta = {
-                    navController.navigate("home")
-                }
-            )
+            Informacoes {
+                navController.navigateSingleTopTo("home")
+            }
         }
     }}
+
+fun NavHostController.navigateSingleTopTo(route: String) =
+    this.navigate(route) { launchSingleTop = true }
 
