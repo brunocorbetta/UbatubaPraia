@@ -24,6 +24,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -41,22 +42,15 @@ import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @Composable
 fun Informacoes(
-    modifier: Modifier = Modifier,
-    viewModel: InformacoesViewModel = viewModel(),
-    onclickVolta: () -> Unit = {},
+    id: String?,
+    modifier: Modifier = Modifier
     ) {
+val Id = id?.toInt()
 
-
-    val uiId = viewModel.itemselecionado.collectAsState()
-
-
-    fun findImageById(id: Int): Int {
+    fun findImageById(id: Int?): Int {
         val atrativo = todaspraias.find { it.id == id }
         return atrativo?.imagem ?: R.drawable.pa_01
     }
-
-
-
 
 
     UbatubaPraiaTheme {
@@ -85,7 +79,7 @@ fun Informacoes(
 
 
                     Image(
-                        painter = painterResource(findImageById(uiId.value)),
+                        painter = painterResource(findImageById(Id)),
                         contentDescription = "Informações",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -93,9 +87,7 @@ fun Informacoes(
 
                     )
 
-                    IconButton(onClick = {
-                        onclickVolta()
-                    }) {
+                    IconButton(onClick = {}) {
                         Icon(
                             Icons.Outlined.ArrowBack, contentDescription = null,
                             tint = Color.Black,
@@ -170,9 +162,3 @@ fun Informacoes(
     }
 }
 
-
-@Preview()
-@Composable
-fun infoTela(){
-    Informacoes()
-}
