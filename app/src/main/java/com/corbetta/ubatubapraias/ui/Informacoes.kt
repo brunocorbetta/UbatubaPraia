@@ -20,38 +20,40 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.R
-import com.corbetta.ubatubapraias.data.Atrativo
-import com.corbetta.ubatubapraias.data.todaspraias
+import com.corbetta.ubatubapraias.data.listafull
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @Composable
 fun Informacoes(
+    navController: NavHostController,
     id: String?,
     modifier: Modifier = Modifier
     ) {
 val Id = id?.toInt()
 
+
+
     fun findImageById(id: Int?): Int {
-        val atrativo = todaspraias.find { it.id == id }
+        val atrativo = listafull.find { it.id == id }
         return atrativo?.imagem ?: R.drawable.pa_01
     }
 
+    val name = listafull[Id!! -1].name
+    val descricao = listafull[Id -1].descricao
+    val informacoes = listafull[Id -1].informacoes
 
     UbatubaPraiaTheme {
 
@@ -87,7 +89,9 @@ val Id = id?.toInt()
 
                     )
 
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
                         Icon(
                             Icons.Outlined.ArrowBack, contentDescription = null,
                             tint = Color.Black,
@@ -111,7 +115,7 @@ val Id = id?.toInt()
             ) {
 
                 Text(
-                    text = "Praias",
+                    text = stringResource(id = name),
                     fontSize = 38.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
@@ -123,7 +127,7 @@ val Id = id?.toInt()
 
 
                 Text(
-                    text = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+                    text = stringResource(id = descricao),
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center,
                     modifier = modifier
@@ -139,7 +143,7 @@ val Id = id?.toInt()
                 )
 
                 Text(
-                    text = "Informações Importantes",
+                    text = "Informaçoes Impostantes!",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
@@ -150,7 +154,7 @@ val Id = id?.toInt()
                 )
 
                 Text(
-                    text = "Não Tem Quisosques e nem restaurante perto",
+                    text = stringResource(id = informacoes),
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center,
                     modifier = modifier
