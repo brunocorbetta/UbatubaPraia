@@ -9,15 +9,60 @@
     <string name="pa_07">Praia Brava</string>
     <string name="pa_08">Praia do Doca</string>
 
+    <string name="Dpa_01">Localizada no lado sul da cidade, praia muito calma! </string>
+    <string name="Dpa_02">A mais movimentada da cidade, tem bastante quiosques e vendedores </string>
+    <string name="Dpa_03">Localizada ao lado da praia grande, praia muito movimentada, ondas altas </string>
+    <string name="Dpa_04">Preferida dos surfistas, da acesso a praia do português </string>
+    <string name="Dpa_05">Localizada na ilha anchieta, o acesso se de por barco </string>
+    <string name="Dpa_06">Localizada ao lado da praia dura, aceso por trilha </string>
+    <string name="Dpa_07">Localizada no caminho para a praia da fortaleza </string>
+    <string name="Dpa_08">Ao lado da praia dura, não tem estacionamento </string>
+
+    <string name="Ipa_01">Info Localizada no lado sul da cidade, praia muito calma! </string>
+    <string name="Ipa_02">Info A mais movimentada da cidade, tem bastante quiosques e vendedores </string>
+    <string name="Ipa_03">Info Localizada ao lado da praia grande, praia muito movimentada, ondas altas </string>
+    <string name="Ipa_04">Info Preferida dos surfistas, da acesso a praia do português </string>
+    <string name="Ipa_05">Info Localizada na ilha anchieta, o acesso se de por barco </string>
+    <string name="Ipa_06">Info Localizada ao lado da praia dura, aceso por trilha </string>
+    <string name="Ipa_07">Info Localizada no caminho para a praia da fortaleza </string>
+    <string name="Ipa_08">Info Ao lado da praia dura, não tem estacionamento </string>
+
+
+
+
+
 
     <string name="ca_01">Cachoeira da Bacia</string>
     <string name="ca_02">Cachoeira Grande</string>
     <string name="ca_03">Cachoeira da Pedra</string>
     <string name="ca_04">Cachoeira do Sul</string>
-    <string name="ca_05">Cachoeira do Promirim</string>
+    <string name="ca_05">Cachoeira do Prumirim</string>
     <string name="ca_06">Cachoeira da Sereia</string>
     <string name="ca_07">Cachoeira da Caixa</string>
     <string name="ca_08">Cachoeira do Norte</string>
+
+    <string name="Dca_01">Localizada do bairro do corcovado </string>
+    <string name="Dca_02">Localizada no bairro do sertão da quina </string>
+    <string name="Dca_03">Localizado na terra do nunca! </string>
+    <string name="Dca_04">Localizado na lado sul de Ubatuba </string>
+    <string name="Dca_05">Localizado ao lado da praia do prumirim </string>
+    <string name="Dca_06">Localizada na  rodovia Rio Santos, na divisa com Paraty </string>
+    <string name="Dca_07">Localizada no bairro do ipiranguinha </string>
+    <string name="Dca_08">Localizada no lado norte do municipio </string>
+
+    <string name="Ica_01">Info Localizada no lado sul da cidade, praia muito calma! </string>
+    <string name="Ica_02">Info A mais movimentada da cidade, tem bastante quiosques e vendedores </string>
+    <string name="Ica_03">Info Localizada ao lado da praia grande, praia muito movimentada, ondas altas </string>
+    <string name="Ica_04">Info Preferida dos surfistas, da acesso a praia do português </string>
+    <string name="Ica_05">Info Localizada na ilha anchieta, o acesso se de por barco </string>
+    <string name="Ica_06">Info Localizada ao lado da praia dura, aceso por trilha </string>
+    <string name="Ica_07">Info Localizada no caminho para a praia da fortaleza </string>
+    <string name="Ica_08">Info Ao lado da praia dura, não tem estacionamento </string>
+
+
+
+
+
 
     <string name="at_01">Roda Gigante</string>
     <string name="at_02">Ruinas lagoinha</string>
@@ -27,4 +72,22 @@
     <string name="at_06">Pico do Corcovado</string>
     <string name="at_07">Teatro Municipal</string>
     <string name="at_08">Praças Publicas</string>
+
+    <string name="Dat_01">Localizada no shopping UbatubaMail, tem 32 metros de altura! </string>
+    <string name="Dat_02">Localizada no bairro da Lagoinha, abriga o local onde ficava os escravos </string>
+    <string name="Dat_03">Localizado no Bairro do Itagua, Abriga diversas especies marinhas </string>
+    <string name="Dat_04">Mais de 200 opçoes de bares e Restaurantes por diversos locais da cidade </string>
+    <string name="Dat_05">Centenas de lojas espalhada pelo municipio </string>
+    <string name="Dat_06">Localizado no bairro do corcovado, tem 1.600 metros de altura </string>
+    <string name="Dat_07">Localizado no centro da cidade, tem diversas atrações durante o ano </string>
+    <string name="Dat_08">Diversas praças espalhadas pelo municipio. </string>
+
+    <string name="Iat_01">Info Localizada no shopping UbatubaMail, tem 32 metros de altura! </string>
+    <string name="Iat_02">Info Localizada no bairro da Lagoinha, abriga o local onde ficava os escravos </string>
+    <string name="Iat_03">Info Localizado no Bairro do Itagua, Abriga diversas especies marinhas </string>
+    <string name="Iat_04">Info Mais de 200 opçoes de bares e Restaurantes por diversos locais da cidade </string>
+    <string name="Iat_05">Info Centenas de lojas espalhada pelo municipio </string>
+    <string name="Iat_06">Info Localizado no bairro do corcovado, tem 1.600 metros de altura </string>
+    <string name="Iat_07">Info Localizado no centro da cidade, tem diversas atrações durante o ano </string>
+    <string name="Iat_08">Info Diversas praças espalhadas pelo municipio. </string>
 </resources>

@@ -38,6 +38,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.corbetta.ubatubapraias.R
 import com.corbetta.ubatubapraias.data.todasAtracoes
 import com.corbetta.ubatubapraias.data.todascachoeiras
@@ -47,15 +48,12 @@ import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(modifier: Modifier = Modifier,
+fun Home(navController: NavController,
          homeViewModel : HomeViewModel = viewModel(),
-         onclickTroca: () -> Unit = {},
+         modifier: Modifier = Modifier,
          ) {
 
     val estadoDasCoisas by homeViewModel.coisasSelecionada.collectAsState()
-
-
-
 
 
     UbatubaPraiaTheme {
@@ -181,11 +179,11 @@ fun Home(modifier: Modifier = Modifier,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = modifier
-                .padding(vertical = 4.dp) ) {
+                .padding(vertical = 4.dp) )
+            {
                 items(itensDaLista) { item ->
-                    ListasDasCoisas(item.imagem, item.name, onclickTroca, getId = item.id, modifier = Modifier.padding(6.dp))
+                    ListasDasCoisas(item.imagem, item.name, navController, item.id,  modifier = Modifier.padding(6.dp))
                 }
-
             }
 
 
@@ -197,9 +195,5 @@ fun Home(modifier: Modifier = Modifier,
 
 
 
-@Preview()
-@Composable
-fun HomeP(){
-    Home()
-}
+
 

@@ -1,43 +1,39 @@
 package com.corbetta.ubatubapraias
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.ui.Home
 import com.corbetta.ubatubapraias.ui.Informacoes
 
 
-
 @Composable
-fun AppNavHost (
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = "home",
-    modifier: Modifier = Modifier
-) {
+fun AppNavHost () {
+
+    val navController = rememberNavController()
 
     NavHost(
-        navController = navController ,
-        startDestination =  startDestination,
-        modifier = modifier
+        navController = navController,
+        startDestination = "Home"
     ) {
-        composable("home") {
+        composable("Home") {
             Home(
-                onclickTroca = {
-                navController.navigateSingleTopTo("informacoes")
-                }
+                navController = navController
             )
         }
 
-        composable("informacoes") {
-            Informacoes {
-                navController.navigateSingleTopTo("home")
-            }
+        composable("Informacoes/{id}") { idimage ->
+            val id = idimage.arguments?.getString("id")
+            Informacoes(navController = navController,id)
         }
-    }}
+    }
 
-fun NavHostController.navigateSingleTopTo(route: String) =
-    this.navigate(route) { launchSingleTop = true }
+        }
+
+
+
+
+
+
 

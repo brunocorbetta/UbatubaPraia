@@ -20,44 +20,40 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.corbetta.ubatubapraias.R
-import com.corbetta.ubatubapraias.data.Atrativo
-import com.corbetta.ubatubapraias.data.todaspraias
+import com.corbetta.ubatubapraias.data.listafull
 import com.corbetta.ubatubapraias.ui.theme.UbatubaPraiaTheme
 
 @Composable
 fun Informacoes(
-    modifier: Modifier = Modifier,
-    viewModel: InformacoesViewModel = viewModel(),
-    onclickVolta: () -> Unit = {},
+    navController: NavHostController,
+    id: String?,
+    modifier: Modifier = Modifier
     ) {
+val Id = id?.toInt()
 
 
-    val uiId = viewModel.itemselecionado.collectAsState()
 
-
-    fun findImageById(id: Int): Int {
-        val atrativo = todaspraias.find { it.id == id }
+    fun findImageById(id: Int?): Int {
+        val atrativo = listafull.find { it.id == id }
         return atrativo?.imagem ?: R.drawable.pa_01
     }
 
-
-
-
+    val name = listafull[Id!! -1].name
+    val descricao = listafull[Id -1].descricao
+    val informacoes = listafull[Id -1].informacoes
 
     UbatubaPraiaTheme {
 
@@ -85,7 +81,7 @@ fun Informacoes(
 
 
                     Image(
-                        painter = painterResource(findImageById(uiId.value)),
+                        painter = painterResource(findImageById(Id)),
                         contentDescription = "Informações",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -94,7 +90,7 @@ fun Informacoes(
                     )
 
                     IconButton(onClick = {
-                        onclickVolta()
+                        navController.popBackStack()
                     }) {
                         Icon(
                             Icons.Outlined.ArrowBack, contentDescription = null,
@@ -119,7 +115,7 @@ fun Informacoes(
             ) {
 
                 Text(
-                    text = "Praias",
+                    text = stringResource(id = name),
                     fontSize = 38.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
@@ -131,7 +127,7 @@ fun Informacoes(
 
 
                 Text(
-                    text = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+                    text = stringResource(id = descricao),
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center,
                     modifier = modifier
@@ -147,7 +143,7 @@ fun Informacoes(
                 )
 
                 Text(
-                    text = "Informações Importantes",
+                    text = "Informaçoes Impostantes!",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
@@ -158,7 +154,7 @@ fun Informacoes(
                 )
 
                 Text(
-                    text = "Não Tem Quisosques e nem restaurante perto",
+                    text = stringResource(id = informacoes),
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center,
                     modifier = modifier
@@ -170,9 +166,3 @@ fun Informacoes(
     }
 }
 
-
-@Preview()
-@Composable
-fun infoTela(){
-    Informacoes()
-}
